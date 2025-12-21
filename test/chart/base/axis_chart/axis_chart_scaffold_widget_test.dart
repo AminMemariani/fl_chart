@@ -1181,7 +1181,7 @@ void main() {
           final chartVirtualRectBeforePan = chartVirtualRect;
           expect(chartVirtualRectBeforePan, isNotNull);
           expect(chartVirtualRectBeforePan!.size.height,
-              greaterThan(renderBox.size.height));
+              greaterThan(renderBox.size.height),);
           expect(chartVirtualRectBeforePan.left, 0);
 
           // Use single-finger gesture to simulate panning
@@ -1275,9 +1275,9 @@ void main() {
           final chartVirtualRectBeforePan = chartVirtualRect;
           expect(chartVirtualRectBeforePan, isNotNull);
           expect(chartVirtualRectBeforePan!.size.width,
-              greaterThan(renderBox.size.width));
+              greaterThan(renderBox.size.width),);
           expect(chartVirtualRectBeforePan.size.height,
-              greaterThan(renderBox.size.height));
+              greaterThan(renderBox.size.height),);
           expect(chartVirtualRectBeforePan.left, isNegative);
           expect(chartVirtualRectBeforePan.top, isNegative);
 
