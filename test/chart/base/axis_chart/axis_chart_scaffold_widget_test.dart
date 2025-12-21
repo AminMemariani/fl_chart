@@ -1071,10 +1071,18 @@ void main() {
           expect(chartVirtualRectBeforePan, isNotNull);
           expect(chartVirtualRectBeforePan!.top, 0);
 
+          // Use single-finger gesture to simulate panning
           const panOffset = Offset(100, 100);
-          await tester.dragFrom(chartCenterOffset, panOffset);
+          final panStart = chartCenterOffset;
+          final panEnd = chartCenterOffset + panOffset;
+          final panGesture = await tester.startGesture(panStart);
+          await tester.pump();
+          await panGesture.moveTo(panEnd);
+          await tester.pump();
+          await panGesture.up();
           await tester.pumpAndSettle();
 
+          expect(chartVirtualRect, isNotNull);
           expect(chartVirtualRect!.size, chartVirtualRectBeforePan.size);
           expect(
             chartVirtualRect!.left,
@@ -1139,10 +1147,18 @@ void main() {
           expect(chartVirtualRectBeforePan, isNotNull);
           expect(chartVirtualRectBeforePan!.left, 0);
 
+          // Use single-finger gesture to simulate panning
           const panOffset = Offset(100, 100);
-          await tester.dragFrom(chartCenterOffset, panOffset);
+          final panStart = chartCenterOffset;
+          final panEnd = chartCenterOffset + panOffset;
+          final panGesture = await tester.startGesture(panStart);
+          await tester.pump();
+          await panGesture.moveTo(panEnd);
+          await tester.pump();
+          await panGesture.up();
           await tester.pumpAndSettle();
 
+          expect(chartVirtualRect, isNotNull);
           expect(chartVirtualRect!.left, 0);
           expect(
             chartVirtualRect!.top,
@@ -1206,10 +1222,18 @@ void main() {
           expect(chartVirtualRectBeforePan!.left, isNegative);
           expect(chartVirtualRectBeforePan.top, isNegative);
 
+          // Use single-finger gesture to simulate panning
           const panOffset = Offset(100, 100);
-          await tester.dragFrom(chartCenterOffset, panOffset);
+          final panStart = chartCenterOffset;
+          final panEnd = chartCenterOffset + panOffset;
+          final panGesture = await tester.startGesture(panStart);
+          await tester.pump();
+          await panGesture.moveTo(panEnd);
+          await tester.pump();
+          await panGesture.up();
           await tester.pumpAndSettle();
 
+          expect(chartVirtualRect, isNotNull);
           expect(
             chartVirtualRect!.left,
             greaterThan(chartVirtualRectBeforePan.left),
