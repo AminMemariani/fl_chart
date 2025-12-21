@@ -15,6 +15,7 @@ void main() {
 
   const dummyChartKey = Key('chart');
   const dummyChart = SizedBox(key: dummyChartKey);
+  const chartColoredBoxKey = Key('chartColoredBox');
 
   final lineChartDataBase = LineChartData(
     minX: 0,
@@ -1032,6 +1033,7 @@ void main() {
                       chartBuilder: (context, rect) {
                         chartVirtualRect = rect;
                         return const ColoredBox(
+                          key: chartColoredBoxKey,
                           color: Colors.red,
                         );
                       },
@@ -1043,11 +1045,7 @@ void main() {
             ),
           );
 
-          final chartCenterOffset = tester.getCenter(
-            find.byWidgetPredicate(
-              (widget) => widget is ColoredBox && widget.color == Colors.red,
-            ),
-          );
+          final chartCenterOffset = tester.getCenter(find.byKey(chartColoredBoxKey));
           final scaleStart1 = chartCenterOffset + const Offset(10, 10);
           final scaleStart2 = chartCenterOffset - const Offset(10, 10);
           final scaleEnd1 = chartCenterOffset + const Offset(100, 100);
@@ -1124,6 +1122,7 @@ void main() {
                       chartBuilder: (context, rect) {
                         chartVirtualRect = rect;
                         return const ColoredBox(
+                          key: chartColoredBoxKey,
                           color: Colors.red,
                         );
                       },
@@ -1135,11 +1134,7 @@ void main() {
             ),
           );
 
-          final chartCenterOffset = tester.getCenter(
-            find.byWidgetPredicate(
-              (widget) => widget is ColoredBox && widget.color == Colors.red,
-            ),
-          );
+          final chartCenterOffset = tester.getCenter(find.byKey(chartColoredBoxKey));
           final scaleStart1 = chartCenterOffset + const Offset(10, 10);
           final scaleStart2 = chartCenterOffset - const Offset(10, 10);
           final scaleEnd1 = chartCenterOffset + const Offset(100, 100);
@@ -1161,7 +1156,7 @@ void main() {
 
           // Verify that scaling actually occurred
           final renderBox = tester.renderObject<RenderBox>(
-            find.byType(ColoredBox),
+            find.byKey(chartColoredBoxKey),
           );
           
           // Wait until chartVirtualRect is updated and scaling is complete
@@ -1214,6 +1209,7 @@ void main() {
                       chartBuilder: (context, rect) {
                         chartVirtualRect = rect;
                         return const ColoredBox(
+                          key: chartColoredBoxKey,
                           color: Colors.red,
                         );
                       },
@@ -1225,11 +1221,7 @@ void main() {
             ),
           );
 
-          final chartCenterOffset = tester.getCenter(
-            find.byWidgetPredicate(
-              (widget) => widget is ColoredBox && widget.color == Colors.red,
-            ),
-          );
+          final chartCenterOffset = tester.getCenter(find.byKey(chartColoredBoxKey));
           final scaleStart1 = chartCenterOffset + const Offset(10, 10);
           final scaleStart2 = chartCenterOffset - const Offset(10, 10);
           final scaleEnd1 = chartCenterOffset + const Offset(100, 100);
@@ -1251,7 +1243,7 @@ void main() {
 
           // Verify that scaling actually occurred
           final renderBox = tester.renderObject<RenderBox>(
-            find.byType(ColoredBox),
+            find.byKey(chartColoredBoxKey),
           );
           
           // Wait until chartVirtualRect is updated and scaling is complete
@@ -1315,6 +1307,7 @@ void main() {
                   chartBuilder: (context, rect) {
                     chartVirtualRect = rect;
                     return const ColoredBox(
+                      key: chartColoredBoxKey,
                       color: Colors.red,
                     );
                   },
@@ -1326,11 +1319,7 @@ void main() {
         ),
       );
 
-      final chartCenterOffset = tester.getCenter(
-        find.byWidgetPredicate(
-          (widget) => widget is ColoredBox && widget.color == Colors.red,
-        ),
-      );
+      final chartCenterOffset = tester.getCenter(find.byKey(chartColoredBoxKey));
       final scaleStart1 = chartCenterOffset + const Offset(10, 10);
       final scaleStart2 = chartCenterOffset - const Offset(10, 10);
       final scaleEnd1 = chartCenterOffset + const Offset(100, 100);
@@ -1352,7 +1341,7 @@ void main() {
 
       // Verify that scaling actually occurred and chartVirtualRect is set
       final renderBox = tester.renderObject<RenderBox>(
-        find.byType(ColoredBox),
+        find.byKey(chartColoredBoxKey),
       );
       
       // Wait until chartVirtualRect is updated and scaling is complete
