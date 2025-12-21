@@ -1045,7 +1045,8 @@ void main() {
             ),
           );
 
-          final chartCenterOffset = tester.getCenter(find.byKey(chartColoredBoxKey));
+          final chartCenterOffset =
+              tester.getCenter(find.byKey(chartColoredBoxKey));
           final scaleStart1 = chartCenterOffset + const Offset(10, 10);
           final scaleStart2 = chartCenterOffset - const Offset(10, 10);
           final scaleEnd1 = chartCenterOffset + const Offset(100, 100);
@@ -1069,20 +1070,24 @@ void main() {
           final renderBox = tester.renderObject<RenderBox>(
             find.byType(ColoredBox),
           );
-          
+
           // Wait until chartVirtualRect is updated and scaling is complete
           var attempts = 0;
-          while ((chartVirtualRect == null || chartVirtualRect!.size.width <= renderBox.size.width) && attempts < 50) {
+          while ((chartVirtualRect == null ||
+                  chartVirtualRect!.size.width <= renderBox.size.width) &&
+              attempts < 50) {
             await tester.pump(const Duration(milliseconds: 16));
             attempts++;
-            if (chartVirtualRect != null && chartVirtualRect!.size.width > renderBox.size.width) {
+            if (chartVirtualRect != null &&
+                chartVirtualRect!.size.width > renderBox.size.width) {
               break;
             }
           }
 
           final chartVirtualRectBeforePan = chartVirtualRect;
           expect(chartVirtualRectBeforePan, isNotNull);
-          expect(chartVirtualRectBeforePan!.size.width, greaterThan(renderBox.size.width));
+          expect(chartVirtualRectBeforePan!.size.width,
+              greaterThan(renderBox.size.width));
           expect(chartVirtualRectBeforePan.top, 0);
 
           // Use single-finger gesture to simulate panning
@@ -1134,7 +1139,8 @@ void main() {
             ),
           );
 
-          final chartCenterOffset = tester.getCenter(find.byKey(chartColoredBoxKey));
+          final chartCenterOffset =
+              tester.getCenter(find.byKey(chartColoredBoxKey));
           final scaleStart1 = chartCenterOffset + const Offset(10, 10);
           final scaleStart2 = chartCenterOffset - const Offset(10, 10);
           final scaleEnd1 = chartCenterOffset + const Offset(100, 100);
@@ -1158,20 +1164,24 @@ void main() {
           final renderBox = tester.renderObject<RenderBox>(
             find.byKey(chartColoredBoxKey),
           );
-          
+
           // Wait until chartVirtualRect is updated and scaling is complete
           var attempts = 0;
-          while ((chartVirtualRect == null || chartVirtualRect!.size.height <= renderBox.size.height) && attempts < 50) {
+          while ((chartVirtualRect == null ||
+                  chartVirtualRect!.size.height <= renderBox.size.height) &&
+              attempts < 50) {
             await tester.pump(const Duration(milliseconds: 16));
             attempts++;
-            if (chartVirtualRect != null && chartVirtualRect!.size.height > renderBox.size.height) {
+            if (chartVirtualRect != null &&
+                chartVirtualRect!.size.height > renderBox.size.height) {
               break;
             }
           }
 
           final chartVirtualRectBeforePan = chartVirtualRect;
           expect(chartVirtualRectBeforePan, isNotNull);
-          expect(chartVirtualRectBeforePan!.size.height, greaterThan(renderBox.size.height));
+          expect(chartVirtualRectBeforePan!.size.height,
+              greaterThan(renderBox.size.height));
           expect(chartVirtualRectBeforePan.left, 0);
 
           // Use single-finger gesture to simulate panning
@@ -1221,7 +1231,8 @@ void main() {
             ),
           );
 
-          final chartCenterOffset = tester.getCenter(find.byKey(chartColoredBoxKey));
+          final chartCenterOffset =
+              tester.getCenter(find.byKey(chartColoredBoxKey));
           final scaleStart1 = chartCenterOffset + const Offset(10, 10);
           final scaleStart2 = chartCenterOffset - const Offset(10, 10);
           final scaleEnd1 = chartCenterOffset + const Offset(100, 100);
@@ -1245,15 +1256,16 @@ void main() {
           final renderBox = tester.renderObject<RenderBox>(
             find.byKey(chartColoredBoxKey),
           );
-          
+
           // Wait until chartVirtualRect is updated and scaling is complete
           var attempts = 0;
-          while ((chartVirtualRect == null || 
-                 chartVirtualRect!.size.width <= renderBox.size.width ||
-                 chartVirtualRect!.size.height <= renderBox.size.height) && attempts < 50) {
+          while ((chartVirtualRect == null ||
+                  chartVirtualRect!.size.width <= renderBox.size.width ||
+                  chartVirtualRect!.size.height <= renderBox.size.height) &&
+              attempts < 50) {
             await tester.pump(const Duration(milliseconds: 16));
             attempts++;
-            if (chartVirtualRect != null && 
+            if (chartVirtualRect != null &&
                 chartVirtualRect!.size.width > renderBox.size.width &&
                 chartVirtualRect!.size.height > renderBox.size.height) {
               break;
@@ -1262,8 +1274,10 @@ void main() {
 
           final chartVirtualRectBeforePan = chartVirtualRect;
           expect(chartVirtualRectBeforePan, isNotNull);
-          expect(chartVirtualRectBeforePan!.size.width, greaterThan(renderBox.size.width));
-          expect(chartVirtualRectBeforePan.size.height, greaterThan(renderBox.size.height));
+          expect(chartVirtualRectBeforePan!.size.width,
+              greaterThan(renderBox.size.width));
+          expect(chartVirtualRectBeforePan.size.height,
+              greaterThan(renderBox.size.height));
           expect(chartVirtualRectBeforePan.left, isNegative);
           expect(chartVirtualRectBeforePan.top, isNegative);
 
@@ -1319,7 +1333,8 @@ void main() {
         ),
       );
 
-      final chartCenterOffset = tester.getCenter(find.byKey(chartColoredBoxKey));
+      final chartCenterOffset =
+          tester.getCenter(find.byKey(chartColoredBoxKey));
       final scaleStart1 = chartCenterOffset + const Offset(10, 10);
       final scaleStart2 = chartCenterOffset - const Offset(10, 10);
       final scaleEnd1 = chartCenterOffset + const Offset(100, 100);
@@ -1343,15 +1358,16 @@ void main() {
       final renderBox = tester.renderObject<RenderBox>(
         find.byKey(chartColoredBoxKey),
       );
-      
+
       // Wait until chartVirtualRect is updated and scaling is complete
       var attempts = 0;
-      while ((chartVirtualRect == null || 
-             chartVirtualRect!.size.width <= renderBox.size.width ||
-             chartVirtualRect!.size.height <= renderBox.size.height) && attempts < 50) {
+      while ((chartVirtualRect == null ||
+              chartVirtualRect!.size.width <= renderBox.size.width ||
+              chartVirtualRect!.size.height <= renderBox.size.height) &&
+          attempts < 50) {
         await tester.pump(const Duration(milliseconds: 16));
         attempts++;
-        if (chartVirtualRect != null && 
+        if (chartVirtualRect != null &&
             chartVirtualRect!.size.width > renderBox.size.width &&
             chartVirtualRect!.size.height > renderBox.size.height) {
           break;
